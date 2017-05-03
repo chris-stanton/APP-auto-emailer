@@ -1,21 +1,44 @@
+
 <!DOCTYPE html>
-<html ng-app="myApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Project Template</title>
-    <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/styles.css"/>
-    <script type="text/javascript" src="/vendor/angular.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/factories/factory.factory.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/home.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/one.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/two.controller.js"></script>
-  </head>
-  <body >
-    <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
-    <nav ng-include="'views/templates/nav.html'"></nav>
-    <main ng-view></main>
-  </body>
-</html> 
+  <html ng-app="myApp">
+    <head>
+      <meta charset="utf-8">
+        <title> Auto Emailer </title>
+          <!-- Angular -->
+          <script type="text/javascript" src="/vendor/angular.min.js"></script>
+          <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+          <!-- client.js -->
+          <script type="text/javascript" src="/scripts/client.js"></script>
+          <!-- Controllers -->
+          <script type="text/javascript" src="/scripts/controllers/login.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/header.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/add.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/email.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/manage.controller.js"></script>
+          <!-- Factories -->
+          <script type="text/javascript" src="/scripts/factories/factory.factory.js"></script>
+            <!-- css -->
+            <link rel="stylesheet" href="/styles/styles.css"/>
+              <!-- Firebase -->
+              <script src="/vendor/firebase.js" charset="utf-8"></script>
+              <!-- AngularFire -->
+              <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+              <!-- Firebase Config -->
+              <script type="text/javascript" src="/scripts/config.js"></script>
+              <!-- BootStrap -->
+              <!-- <script src="/vendor/bootstrap.min.js" charset="utf-8"></script> -->
+              <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
+              <!-- Sweatalerts 2 -->
+              <script src="/vendor/sweetalert2.min.js" charset="utf-8"></script>
+              <link rel="stylesheet" href="/vendor/sweetalert2.css">
+              <!-- Notyf -->
+              <script src="/vendor/notyf.min.js" type="text/javascript"></script>
+              <link rel="stylesheet" type="text/css" href="/vendor/notyf.min.css">
+
+    </head>
+    <body >
+      <header ng-controller="HeaderController as hc" ng-include="'/views/templates/header.html'"></header>
+        <nav ng-include="'views/templates/nav.html'"></nav>
+          <main ng-view></main>
+    </body>
+  </html>

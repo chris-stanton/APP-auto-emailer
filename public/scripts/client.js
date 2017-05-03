@@ -1,25 +1,30 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'firebase']);
 
 myApp.config(['$routeProvider', function($routeProvider) {
 
   //routes
     $routeProvider
-        .when ('/home', {
-          templateUrl: '/views/home-view.html',
-          controller: 'HomeController',
-          controllerAs: 'home'
+        .when ('/login', {
+          templateUrl: '/views/login.html',
+          controller: 'LoginController',
+          controllerAs: 'lc'
         })
-        .when ('/view-1', {
-            templateUrl: '/views/view_1.html',
-            controller: 'OneController',
-            controllerAs: 'one'
+        .when ('/add', {
+          templateUrl: '/views/add.html',
+          controller: 'AddController',
+          controllerAs: 'ac'
         })
-        .when ('/view-2', {
-            templateUrl: '/views/view_2.html',
-            controller: 'TwoController',
-            controllerAs: 'two'
+        .when ('/email', {
+            templateUrl: '/views/email.html',
+            controller: 'EmailController',
+            controllerAs: 'ec'
+        })
+        .when ('/manage', {
+            templateUrl: '/views/manage.html',
+            controller: 'ManageController',
+            controllerAs: 'mc'
         })
         .otherwise ( {
-            redirectTo: '/home'
+            redirectTo: '/add'
         });
 }]);
