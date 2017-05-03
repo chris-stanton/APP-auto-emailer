@@ -1,6 +1,5 @@
 
 myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window) {
-  // console.log('TwoController running');
 
   var self = this;
 //notyf
@@ -11,6 +10,24 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
 
 
   self.message = 'angular Header Controller sourced';
+
+  init();
+
+// startup function
+  function init() {
+    loginCheck();
+  }
+
+// redirect to login of not authenticated
+  function loginCheck() {
+    var firebaseUser = auth.$getAuth();
+    console.log(firebaseUser);
+    if (firebaseUser === null) {
+      $location.path('/login');
+    } else {
+      return
+    }
+  }//end of loginCheck()
 
 //creates user credentials
   function createUser() {
@@ -34,6 +51,7 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
             self.photo = firebaseUser.user.photoURL;
             self.email = firebaseUser.user.email;
               createUser();
+                $location.path('/add');
     }).catch(function(error) {
         console.log("Authentication failed: ", error);
     });
@@ -45,8 +63,7 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
       notyf.alert('You Have Logged Out');
         $window.location.reload();
     });
+    $location.path('/login');
   };//end of logout function
 
 }]);//end of myApp.controller
-
-//$location.path('/email');

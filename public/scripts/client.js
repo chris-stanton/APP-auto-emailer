@@ -4,6 +4,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
   //routes
     $routeProvider
+        .when ('/login', {
+          templateUrl: '/views/login.html',
+          controller: 'LoginController',
+          controllerAs: 'lc'
+        })
         .when ('/add', {
           templateUrl: '/views/add.html',
           controller: 'AddController',

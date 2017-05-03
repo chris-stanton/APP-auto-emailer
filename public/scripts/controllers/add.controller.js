@@ -9,6 +9,9 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
   var auth = $firebaseAuth();
   var firebaseUser = auth.$getAuth();
 
+  // if (firebaseUser.email !== 'NULL') {
+  //   $location.path('/login');
+  // }
 
   self.message = 'angular Add Controller sourced';
 
