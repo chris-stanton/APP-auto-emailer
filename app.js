@@ -1,14 +1,17 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
 var decoder = require('./server/modules/decoder');
-var routes = require('./server/routes/routes.js')
+var auth = require('./server/routes/auth.js')
 
-app.use('/inboundURLbase',routes)
+app.use('/inboundURLbase', auth)
 
 
 //Serve back static files
 app.use(express.static(path.join(__dirname, './public')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //Handle index file separately
 app.get('/', function(req, res) {
@@ -16,12 +19,11 @@ app.get('/', function(req, res) {
 })
 
 
-//route pointers
-app.use('/routes', routes);
-
-
 //authentication is required below this line
 app.use(decoder.token);
+
+//route pointers
+app.use('/auth', auth);
 
 
 

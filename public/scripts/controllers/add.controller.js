@@ -9,11 +9,25 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
   var auth = $firebaseAuth();
   var firebaseUser = auth.$getAuth();
 
-  // if (firebaseUser.email !== 'NULL') {
-  //   $location.path('/login');
-  // }
-
   self.message = 'angular Add Controller sourced';
+
+  init();
+
+  // startup function
+  function init() {
+    loginCheck();
+  }
+
+  // redirect to login of not authenticated
+  function loginCheck() {
+    var firebaseUser = auth.$getAuth();
+      if (firebaseUser === null) {
+        $location.path('/login');
+      } else {
+        return
+      }
+  }//end of loginCheck()
+
 
 //sends new company to DB
   self.addCompany = function(newCompany){

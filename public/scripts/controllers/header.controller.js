@@ -1,5 +1,5 @@
 
-myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window) {
+myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', '$route', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window, $route) {
 
   var self = this;
 //notyf
@@ -21,25 +21,24 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
 // redirect to login of not authenticated
   function loginCheck() {
     var firebaseUser = auth.$getAuth();
-    console.log(firebaseUser);
-    if (firebaseUser === null) {
-      $location.path('/login');
-    } else {
-      return
-    }
+      if (firebaseUser === null) {
+        $location.path('/login');
+      } else {
+        return
+      }
   }//end of loginCheck()
 
 //creates user credentials
   function createUser() {
     var firebaseUser = auth.$getAuth();
-      var userAtLogin = {
+      var atLogin = {
         displayName : firebaseUser.displayName,
         email : firebaseUser.email,
         photo : firebaseUser.photoURL
       };
-      console.log("userAtLogin ", userAtLogin);
+      console.log("logged in user; ", atLogin);
 //calls function at factory
-        // FactoryFactory.checkUserAtLogin(userAtLogin);
+        FactoryFactory.checkUserAtLogin(atLogin);
   };//end of createUser()
 
 //google auth login and new user object created
@@ -47,11 +46,10 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
     var firebaseUser = auth.$getAuth();
       auth.$signInWithPopup("google").then(function(firebaseUser) {
         console.log("Firebase Authenticated as: ", firebaseUser.user.displayName);
-          notyf.confirm('You Are Logged In');
-            self.photo = firebaseUser.user.photoURL;
-            self.email = firebaseUser.user.email;
-              createUser();
-                $location.path('/add');
+          self.photo = firebaseUser.user.photoURL;
+          self.email = firebaseUser.user.email;
+            createUser();
+              $location.path('/add');
     }).catch(function(error) {
         console.log("Authentication failed: ", error);
     });

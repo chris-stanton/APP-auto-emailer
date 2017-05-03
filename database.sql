@@ -5,7 +5,8 @@ CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	displayName VARCHAR(100) NOT NULL,
 	email VARCHAR(100) NOT NULL,
-	photo VARCHAR(2000) NOT NULL
+	photo VARCHAR(2000) NOT NULL,
+	sql_id VARCHAR(2000) NOT NULL
 );
 
 	INSERT INTO users (id, displayName, email, photo)
