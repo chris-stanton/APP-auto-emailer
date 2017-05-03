@@ -1,5 +1,5 @@
 
-myApp.controller('OneController',['FactoryFactory',function(FactoryFactory) {
+myApp.controller('ManageController',['FactoryFactory',function(FactoryFactory) {
 // console.log('OneController running');
 
   var self = this;

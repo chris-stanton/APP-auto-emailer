@@ -1,5 +1,5 @@
 
-myApp.controller('TwoController',['FactoryFactory',function(FactoryFactory) {
+myApp.controller('EmailController',['FactoryFactory',function(FactoryFactory) {
   // console.log('TwoController running');
 
   var self = this;

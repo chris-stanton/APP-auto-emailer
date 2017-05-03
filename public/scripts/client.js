@@ -4,22 +4,22 @@ myApp.config(['$routeProvider', function($routeProvider) {
 
   //routes
     $routeProvider
-        .when ('/home', {
-          templateUrl: '/views/home-view.html',
-          controller: 'HomeController',
-          controllerAs: 'hc'
+        .when ('/add', {
+          templateUrl: '/views/add.html',
+          controller: 'AddController',
+          controllerAs: 'ac'
         })
-        .when ('/view-1', {
-            templateUrl: '/views/view_1.html',
-            controller: 'OneController',
-            controllerAs: 'one'
+        .when ('/email', {
+            templateUrl: '/views/email.html',
+            controller: 'EmailController',
+            controllerAs: 'ec'
         })
-        .when ('/view-2', {
-            templateUrl: '/views/view_2.html',
-            controller: 'TwoController',
-            controllerAs: 'two'
+        .when ('/manage', {
+            templateUrl: '/views/manage.html',
+            controller: 'ManageController',
+            controllerAs: 'mc'
         })
         .otherwise ( {
-            redirectTo: '/home'
+            redirectTo: '/add'
         });
 }]);

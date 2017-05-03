@@ -1,5 +1,5 @@
 
-myApp.controller('HomeController', function() {
+myApp.controller('AddController', function() {
   // console.log('homeController running');
 
   var self = this;

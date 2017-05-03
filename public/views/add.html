@@ -1,0 +1,31 @@
+<h1> Add Opportunity </h1>
+<!-- company submition form -->
+  <div id="companySubmitContainer">
+    <table>
+      <thead>
+        <tr>
+          <th> Company Name </th>
+          <th> Contact First Name </th>
+          <th> Contact Last Name </th>
+          <th> Contact Email </th>
+          <th> Initial Contact Date </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <input ng-model="ac.newCompany.companyName" type="text"> </td>
+          <td> <input ng-model="ac.newCompany.firstName" type="text"> </td>
+          <td> <input ng-model="ac.newCompany.firstLast" type="text"> </td>
+          <td> <input ng-model="ac.newCompany.email" placeholder="example@gmail.com" type="text"> </td>
+          <td> <input ng-model="ac.newCompany.contactDate" placeholder="MM/DD/YY" type="text"> </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <label> Notes </label>
+      <textarea ng-model="ac.newCompany.note" rows="8" cols="80"></textarea>
+    </div>
+    <div>
+      <button ng-click="ac.addCompany(ac.newCompany)" type="button" name="button"> Submit </button>
+    </div>
+  </div>
