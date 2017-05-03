@@ -32,6 +32,7 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
 //sends new company to DB
   self.addCompany = function(newCompany){
     console.log("newCompany ", newCompany);
+    FactoryFactory.addCompany(newCompany);
 //empties inputs
     self.newCompany = {};
   }//end of newCompany

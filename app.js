@@ -3,7 +3,9 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var decoder = require('./server/modules/decoder');
-var auth = require('./server/routes/auth.js')
+var public = require('./server/routes/public.js');
+var auth = require('./server/routes/auth.js');
+
 
 app.use('/inboundURLbase', auth)
 
@@ -18,6 +20,9 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '.public/index.html'));
 })
 
+
+//route pointers
+app.use('/public', public);
 
 //authentication is required below this line
 app.use(decoder.token);

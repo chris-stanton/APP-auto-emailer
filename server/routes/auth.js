@@ -28,6 +28,23 @@ var pool = new pg.Pool(config);
       });//end of .then
   });//end of router.post
 
+//adds new user to DB
+  router.post('/newCompany', function (req, res) {
+    var newCompany = req.body;
+      pool.connect()
+      .then(function (client) {
+        client.query('INSERT INTO companies (companyName, contactFirstName, contactLastName, contactEmail, contactDate, note) VALUES ($1, $2, $3, $4, $5, $6);',[newCompany.companyName, newCompany.firstName, newCompany.lastName, newCompany.email, newCompany.contactDate, newCompany.note])
+        .then(function (result) {
+          client.release();
+          res.send(result.rows);
+        })
+        .catch(function (err) {
+          console.log('error on SELECT', err);
+          res.sendStatus(500);
+        });
+      });//end of .then
+  });//end of router.post
+
 
 
 

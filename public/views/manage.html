@@ -1,2 +1,44 @@
 
   <h2> Manage Opportunities </h2>
+<!-- filters -->
+  <div class="filterContainer">
+    <select ng-model="mc.filterResult.contactDate">
+      <option value="null"> All Dates </option>
+      <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.contactdate}} </option>
+    </select>
+    <select ng-model="mc.filterResult.active">
+      <option value="true"> True </option>
+      <option value="false"> False </option>
+    </select>
+    <button ng-click="mc.getFilterResults(mc.filterResult)" type="button"> Filter </button>
+  </div>
+
+<!-- opportunities table -->
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <td> Active </td>
+          <td> Company Name </td>
+          <td> Contact First Name </td>
+          <td> Contact Last Name </td>
+          <td> Contact Email </td>
+          <td> Initial Contact Date </td>
+          <td> Notes </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="allOpportunities in mc.allOpportunities.list">
+          <td> {{allOpportunities.active}} </td>
+          <td> {{allOpportunities.companyname}} </td>
+          <td> {{allOpportunities.contactfirstname}} </td>
+          <td> {{allOpportunities.contactlastname}} </td>
+          <td> {{allOpportunities.contactemail}} </td>
+          <td> {{allOpportunities.contactdate}} </td>
+          <td> <textarea rows="3" cols="50"> {{allOpportunities.note}} </textarea> </td>
+          <td> <button type="button" name="button"> </button> Update </td>
+          <td> <button type="button" name="button"> </button> Delete </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
