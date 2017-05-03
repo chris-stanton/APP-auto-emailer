@@ -13,12 +13,12 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
 
   init();
 
-  // startup function
+//startup function
   function init() {
     loginCheck();
   }
 
-  // redirect to login of not authenticated
+//redirect to login of not authenticated
   function loginCheck() {
     var firebaseUser = auth.$getAuth();
       if (firebaseUser === null) {
@@ -30,11 +30,21 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
 
 
 //sends new company to DB
-  self.addCompany = function(newCompany){
-    console.log("newCompany ", newCompany);
+  self.addCompany = function(company){
+    console.log("company ", company);
+    newCompany = {
+      companyName : company.companyName,
+      firstName : company.firstName,
+      lastName : company.lastName,
+      email : company.email,
+      contactDate : company.contactDate,
+      note : company.note,
+      id : 1 //hard coaded value
+    }
+//sends new company to DB    
     FactoryFactory.addCompany(newCompany);
 //empties inputs
-    self.newCompany = {};
+    self.company = {};
   }//end of newCompany
 
 

@@ -13,7 +13,6 @@ var pool = new pg.Pool(config);
 //adds new user to DB
   router.post('/userAtLogin', function (req, res) {
     var atLogin = req.body;
-    console.log(req.decodedToken.user_id);
       pool.connect()
       .then(function (client) {
         client.query('INSERT INTO users (displayName, email, photo, sql_id) VALUES ($1, $2, $3, $4);',[atLogin.displayName, atLogin.email, atLogin.photo, req.decodedToken.user_id])
@@ -28,12 +27,12 @@ var pool = new pg.Pool(config);
       });//end of .then
   });//end of router.post
 
-//adds new user to DB
+//adds new company/opportunity to DB
   router.post('/newCompany', function (req, res) {
     var newCompany = req.body;
       pool.connect()
       .then(function (client) {
-        client.query('INSERT INTO companies (companyName, contactFirstName, contactLastName, contactEmail, contactDate, note) VALUES ($1, $2, $3, $4, $5, $6);',[newCompany.companyName, newCompany.firstName, newCompany.lastName, newCompany.email, newCompany.contactDate, newCompany.note])
+        client.query('INSERT INTO companies (companyName, contactFirstName, contactLastName, contactEmail, contactDate, note, users_id) VALUES ($1, $2, $3, $4, $5, $6, $7);',[newCompany.companyName, newCompany.firstName, newCompany.lastName, newCompany.email, newCompany.contactDate, newCompany.note, newCompany.id])
         .then(function (result) {
           client.release();
           res.send(result.rows);

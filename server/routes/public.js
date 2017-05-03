@@ -13,41 +13,41 @@ var pool = new pg.Pool(config);
 //gets all users info
 router.put('/allOpportunities', function(req, res) {
   var filterResult = req.body;
-  if (filterResult.contactDate !== "null"){
-  pool.connect()
-    .then(function (client) {
-      client.query("SELECT * FROM companies WHERE contactDate=$1 and active=$2", [filterResult.contactDate, filterResult.active])
-        .then(function (result) {
-          client.release();
-          res.send(result.rows);
-        })
-        .catch(function (err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
-        });
-    });//end of .then
-  } else {
-    pool.connect()
-      .then(function (client) {
-        client.query("SELECT * FROM companies WHERE active=$1", [filterResult.active])
-          .then(function (result) {
-            client.release();
-            res.send(result.rows);
-          })
-          .catch(function (err) {
-            console.log('error on SELECT', err);
-            res.sendStatus(500);
-          });
-      });//end of .then
-  }
+    if (filterResult.contactDate !== "null"){
+      pool.connect()
+        .then(function (client) {
+          client.query("SELECT * FROM companies WHERE contactDate=$1 and active=$2", [filterResult.contactDate, filterResult.active])
+            .then(function (result) {
+              client.release();
+              res.send(result.rows);
+            })
+            .catch(function (err) {
+              console.log('error on SELECT', err);
+              res.sendStatus(500);
+            });
+        });//end of .then
+    } else {
+      pool.connect()
+        .then(function (client) {
+          client.query("SELECT * FROM companies WHERE active=$1", [filterResult.active])
+            .then(function (result) {
+              client.release();
+              res.send(result.rows);
+            })
+            .catch(function (err) {
+              console.log('error on SELECT', err);
+              res.sendStatus(500);
+            });
+          });//end of .then
+    }//end of else
 });//end of router.put
 
-//gets all users info
+//gets dates for manage filter by users_id
 router.get('/getFilterDates', function(req, res) {
   var getFilterDates = req.body;
   pool.connect()
     .then(function (client) {
-      client.query("SELECT contactDate FROM companies where users_id=1")
+      client.query("SELECT contactDate FROM companies where users_id=1")//hard coded value
         .then(function (result) {
           client.release();
           res.send(result.rows);
@@ -58,12 +58,6 @@ router.get('/getFilterDates', function(req, res) {
         });
     });//end of .then
 });//end of router.get
-
-
-
-
-
-
 
 
 
