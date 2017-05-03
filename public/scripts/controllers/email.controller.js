@@ -4,7 +4,7 @@ myApp.controller('EmailController',['FactoryFactory',function(FactoryFactory) {
 
   var self = this;
 
-  self.message = 'angular View Two sourced';
+  self.message = 'angular Email Controller sourced';
 
 
 

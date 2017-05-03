@@ -4,7 +4,7 @@ myApp.controller('ManageController',['FactoryFactory',function(FactoryFactory) {
 
   var self = this;
 
-  self.message = 'angular View One sourced';
+  self.message = 'angular Manage Controller sourced';
 
 
 

@@ -10,13 +10,14 @@
           <!-- client.js -->
           <script type="text/javascript" src="/scripts/client.js"></script>
           <!-- Controllers -->
+          <script type="text/javascript" src="/scripts/controllers/header.controller.js"></script>
           <script type="text/javascript" src="/scripts/controllers/add.controller.js"></script>
           <script type="text/javascript" src="/scripts/controllers/email.controller.js"></script>
           <script type="text/javascript" src="/scripts/controllers/manage.controller.js"></script>
           <!-- Factories -->
           <script type="text/javascript" src="/scripts/factories/factory.factory.js"></script>
             <!-- css -->
-            <link rel="stylesheet" href="/css/styles.css"/>
+            <link rel="stylesheet" href="/styles/styles.css"/>
               <!-- BootStrap -->
               <!-- <script src="/vendor/bootstrap.min.js" charset="utf-8"></script> -->
               <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
@@ -28,8 +29,8 @@
               <link rel="stylesheet" type="text/css" href="/vendor/notyf.min.css">
     </head>
     <body >
-      <nav ng-include="'views/templates/nav.html'"></nav>
-        <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
+      <header class="jumbotron text-center" ng-controller="HeaderController as hc"ng-include="'/views/templates/header.html'"></header>
+        <nav ng-include="'views/templates/nav.html'"></nav>
           <main ng-view></main>
     </body>
   </html>
