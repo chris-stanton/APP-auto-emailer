@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var pg = require('pg');
 var config = {
-  database: 'phi',//database name
+  database: 'auto_emailer',//database name
   host: 'localhost',
   port: 5432,
   max: 10,

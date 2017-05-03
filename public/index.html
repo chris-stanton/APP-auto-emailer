@@ -1,21 +1,28 @@
+
 <!DOCTYPE html>
-<html ng-app="myApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Project Template</title>
-    <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/styles.css"/>
-    <script type="text/javascript" src="/vendor/angular.min.js"></script>
-    <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/factories/factory.factory.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/add.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/email.controller.js"></script>
-    <script type="text/javascript" src="/scripts/controllers/manage.controller.js"></script>
-  </head>
-  <body >
-    <nav ng-include="'views/templates/nav.html'"></nav>
-    <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
-    <main ng-view></main>
-  </body>
-</html>
+  <html ng-app="myApp">
+    <head>
+      <meta charset="utf-8">
+        <title> Auto Emailer </title>
+          <!-- Angular -->
+          <script type="text/javascript" src="/vendor/angular.min.js"></script>
+          <script type="text/javascript" src="/vendor/angular-route.min.js"></script>
+          <!-- client.js -->
+          <script type="text/javascript" src="/scripts/client.js"></script>
+          <!-- Controllers -->
+          <script type="text/javascript" src="/scripts/controllers/add.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/email.controller.js"></script>
+          <script type="text/javascript" src="/scripts/controllers/manage.controller.js"></script>
+          <!-- Factories -->
+          <script type="text/javascript" src="/scripts/factories/factory.factory.js"></script>
+            <!-- BootStrap -->
+            <link rel="stylesheet" href="/vendor/bootstrap.min.css"/>
+            <!-- css -->
+            <link rel="stylesheet" href="/css/styles.css"/>
+    </head>
+    <body >
+      <nav ng-include="'views/templates/nav.html'"></nav>
+        <header class="jumbotron text-center" ng-include="'/views/templates/header.html'"></header>
+          <main ng-view></main>
+    </body>
+  </html>
