@@ -3,10 +3,34 @@
 //             GLOBAL              //
 ///////////////////////////////////*/
 /*h1 headers*/
-.headers {
+h2 {
   text-align: center;
 }
+/*header background*/
+header {
+  background-color: #b0b0b0;
+}
 
+
+
+
+
+/*///////////////////////////////////
+//           HEADER VIEW           //
+///////////////////////////////////*/
+
+/*auth button div container*/
+.loginButtons {
+  text-align: right;
+}
+
+/*header h1 element*/
+.h1Header {
+  font-size: 75px;
+  text-align: center;
+  margin: 0px 0px 0px 0px;
+
+}
 
 
 
@@ -21,19 +45,6 @@
   width: 100%;
   display: inline-block;
 }
-
-
-
-
-
-
-
-/*///////////////////////////////////
-//           HEADER VIEW           //
-///////////////////////////////////*/
-
-
-
 
 
 

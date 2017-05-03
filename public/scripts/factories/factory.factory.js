@@ -1,5 +1,8 @@
 myApp.factory('FactoryFactory',['$http',function($http) {
-console.log('FactoryFactory running');
+  console.log('FactoryFactory running');
+
+//must have variable for notyf
+  var notyf = new Notyf();
 
 
 
@@ -13,6 +16,7 @@ console.log('FactoryFactory running');
 //public API
   return {
 
+
   }
 
-}]);
+}]);//end of app.factory()
