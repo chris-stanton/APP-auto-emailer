@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var decoder = require('./server/modules/decoder');
 var routes = require('./server/routes/routes.js')
 
 app.use('/inboundURLbase',routes)
@@ -18,8 +19,8 @@ app.get('/', function(req, res) {
 //route pointers
 app.use('/routes', routes);
 
-//authentication is required below these lines
-var decoder = require('./server/modules/decoder.js');
+
+//authentication is required below this line
 app.use(decoder.token);
 
 

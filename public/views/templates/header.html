@@ -1,8 +1,12 @@
 
 <div>
   <div class="loginButtons">
-    <button ng-click="hc.login()" type="button"> login </button>
-    <button ng-click="hc.logout()" type="button"> logout </button>
+    <div ng-hide="hc.email === NULL">
+      <img class="authImage" src="{{hc.photo}}">
+      <span> {{hc.email}} </span>
+    </div>
+      <button ng-show="hc.email === NULL" ng-click="hc.login()" type="button"> login </button>
+      <button ng-hide="hc.email === NULL" ng-click="hc.logout()" type="button"> logout </button>
   </div>
-  <h1 class="h1Header">  Auto Emailer </h1>
+  <h1 class="h1Header"> Auto Emailer </h1>
 </div>

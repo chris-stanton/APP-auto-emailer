@@ -36,5 +36,6 @@
     messagingSenderId: "172181420113"
   };
   firebase.initializeApp(config);
+
 // Contact GitHub API Training Shop Blog About
 // © 2017 GitHub, Inc. Terms Privacy Security Status Help

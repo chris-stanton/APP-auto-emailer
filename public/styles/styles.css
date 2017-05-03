@@ -32,6 +32,12 @@ header {
 
 }
 
+.authImage {
+  height: 30px;
+  width: 30px;
+  border-radius: 25px;
+}
+
 
 
 
