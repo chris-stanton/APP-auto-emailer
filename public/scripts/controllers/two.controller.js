@@ -1,8 +1,10 @@
-myApp.controller('TwoController',['FactoryFactory',function(FactoryFactory) {
 
-  console.log('TwoController running');
+myApp.controller('TwoController',['FactoryFactory',function(FactoryFactory) {
+  // console.log('TwoController running');
+
   var self = this;
-  self.message = 'angular sourced';
+
+  self.message = 'angular View Two sourced';
 
 
 
