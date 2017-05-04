@@ -12,6 +12,7 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 
   self.message = 'angular Manage Controller sourced';
 
+
   init();
   function init() {
     getFilterDates();
@@ -20,20 +21,19 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 //gets filter dates from DB
   function getFilterDates(){
     var firebaseUser = auth.$getAuth();
-    var userMatchObject = FactoryFactory.userMatchObject.list;
+      var userMatchObject = FactoryFactory.userMatchObject.list;
 //container to loop id's through
-    var id = "";
+      var id = "";
 //loops through all users email to find correct id
-      for (var i = 0; i < userMatchObject.length; i++) {
-        if (userMatchObject[i].email == firebaseUser.email) {
-          var id = userMatchObject[i].id;
-        }//end of if
-      };//end of for loop
-      var id = {
-        id : id
-      }
-      FactoryFactory.getFilterDates(id);
-      console.log(id);
+        for (var i = 0; i < userMatchObject.length; i++) {
+          if (userMatchObject[i].email == firebaseUser.email) {
+            var id = userMatchObject[i].id;
+          }//end of if
+        };//end of for loop
+        var id = {
+          id : id
+        }
+        FactoryFactory.getFilterDates(id);
   }//end of getFilterDates()
 
 
@@ -60,29 +60,28 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 //gets results from filters
   self.getFilterResults = function(filter) {
     var firebaseUser = auth.$getAuth();
-    var userMatchObject = FactoryFactory.userMatchObject.list;
+      var userMatchObject = FactoryFactory.userMatchObject.list;
 //container to loop id's through
-    var id = "";
+      var id = "";
 //loops through all users email to find correct id
-      for (var i = 0; i < userMatchObject.length; i++) {
-        if (userMatchObject[i].email == firebaseUser.email) {
-          var id = userMatchObject[i].id;
-        }//end of if
-      };//end of for loop
-        var filterResult = {
-          contactDate : filter.contactDate,
-          active : filter.active,
-          id : id
-        };
+        for (var i = 0; i < userMatchObject.length; i++) {
+          if (userMatchObject[i].email == firebaseUser.email) {
+            var id = userMatchObject[i].id;
+          }//end of if
+        };//end of for loop
+          var filterResult = {
+            contactDate : filter.contactDate,
+            active : filter.active,
+            id : id
+          };
           FactoryFactory.getOpportunities(filterResult);//hard coded value on server side
   }//end of getFilterResults()
 
 
 //updates an opportunity at the DB
   self.updateOpportunity = function(allOpportunities) {
-    console.log(allOpportunities);
     FactoryFactory.updateOpportunity(allOpportunities);
-    $route.reload();
+      $route.reload();
   }
 
 
