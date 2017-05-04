@@ -6,7 +6,7 @@
       <label for=""> Company Name / Contact Date </label>
         <select ng-model="mc.filter.contactDate">
           <option value="null"> All Dates </option>
-          <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.companyname}} - {{filteredDates.contactdate}} </option>
+          <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.companyname}} </option>
         </select>
     </div>
     <div>
@@ -68,3 +68,6 @@
         </tr>
     </table>
   </div>
+
+
+ <!-- {{filteredDates.contactdate}} -->

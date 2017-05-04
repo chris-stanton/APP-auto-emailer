@@ -50,7 +50,7 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
           email : company.email,
           contactDate : company.contactDate,
           note : company.note,
-          id : id 
+          id : id
         }
 //sends new company to DB
     FactoryFactory.addCompany(newCompany);
