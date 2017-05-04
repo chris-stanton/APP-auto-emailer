@@ -5,8 +5,8 @@
       <img class="authImage" src="{{hc.photo}}">
       <span> {{hc.email}} </span>
     </div>
-      <button ng-show="hc.email === NULL" ng-click="hc.login()" type="button"> login </button>
-      <button ng-hide="hc.email === NULL" ng-click="hc.logout()" type="button"> logout </button>
+      <button class="loginButtons" ng-show="hc.email === NULL" ng-click="hc.login()" type="button"> login </button>
+      <button class="loginButtons" ng-hide="hc.email === NULL" ng-click="hc.logout()" type="button"> logout </button>
   </div>
   <h1 class="h1Header"> Auto Emailer </h1>
 </div>

@@ -2,18 +2,41 @@
 /*///////////////////////////////////
 //             GLOBAL              //
 ///////////////////////////////////*/
+
 /*h1 headers*/
-h2 {
+/*h2 {
   text-align: center;
-}
+}*/
 /*header background*/
 header {
-  background-color: #b0b0b0;
+  background-color: #448fb0;
 }
 
 input {
   border-radius: 5px;
 }
+
+.headers {
+  margin: 40px 0px 40px 0px;
+  text-align: center;
+  font-size: 45px;
+}
+
+
+
+
+/*///////////////////////////////////
+//            LOGIN VIEW           //
+///////////////////////////////////*/
+
+#loginHeader {
+  text-align: center;
+  margin-top: 180px;
+  font-size: 60px;
+  font-family: fantasy;
+  color: #e32222;
+}
+
 
 
 
@@ -25,16 +48,20 @@ input {
 /*auth button div container*/
 .loginButtons {
   text-align: right;
+  background-color: #448fb0;
+  outline-color: none;
 }
 
 /*header h1 element*/
 .h1Header {
-  font-size: 75px;
+  font-size: 65px;
   text-align: center;
+  font-family: fantasy;
   margin: 0px 0px 0px 0px;
 
 }
 
+/*google auth image*/
 .authImage {
   height: 30px;
   width: 30px;
@@ -58,8 +85,6 @@ input {
 
 
 
-
-
 /*///////////////////////////////////
 //            ADD VIEW             //
 ///////////////////////////////////*/
@@ -68,6 +93,32 @@ input {
 #companySubmitContainer {
   text-align: center;
   width: 100%;
+  margin-top: 40px;
+}
+
+/*div container around note header*/
+#noteDiv {
+  margin-top: 40px;
+}
+
+/*div container around button*/
+#buttonDiv {
+  margin-top: 40px;
+}
+
+/*td input container*/
+.input {
+  width: 180px;
+}
+
+/*container around input description*/
+.description {
+  font-size: 12px;
+}
+
+/*container around input title name*/
+.head {
+  font-size: 20px;
 }
 
 

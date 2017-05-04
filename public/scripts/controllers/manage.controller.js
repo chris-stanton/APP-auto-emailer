@@ -25,8 +25,20 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 
   init();
   function init() {
+    loginCheck()
     getFilterDates();
   }
+
+
+//redirect to login of not authenticated
+  function loginCheck() {
+    var firebaseUser = auth.$getAuth();
+      if (firebaseUser === null) {
+        $location.path('/login');
+      } else {
+        return
+      }
+  }//end of loginCheck()
 
 //gets filter dates from DB
   function getFilterDates(){
@@ -46,17 +58,6 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
         FactoryFactory.getFilterDates(id);
   }//end of getFilterDates()
 
-
-  loginCheck();
-//redirect to login of not authenticated
-  function loginCheck() {
-    var firebaseUser = auth.$getAuth();
-      if (firebaseUser === null) {
-        $location.path('/login');
-      } else {
-        return
-      }
-  }//end of loginCheck()
 
 //gets results from filters
   self.getFilterResults = function(filter) {
