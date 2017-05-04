@@ -13,6 +13,16 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
   self.message = 'angular Manage Controller sourced';
 
 
+  //gets all opportunities from DB
+    FactoryFactory.getOpportunities();
+  //all opportunities from DB
+    self.allOpportunities = FactoryFactory.allOpportunities;
+  //all dates from DB to view
+    self.filteredDates = FactoryFactory.filteredDates;
+
+
+
+
   init();
   function init() {
     getFilterDates();
@@ -35,15 +45,6 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
         }
         FactoryFactory.getFilterDates(id);
   }//end of getFilterDates()
-
-
-//gets all opportunities from DB
-  FactoryFactory.getOpportunities();
-//all opportunities from DB
-  self.allOpportunities = FactoryFactory.allOpportunities;
-//all dates from DB to view
-  self.filteredDates = FactoryFactory.filteredDates;
-
 
 
   loginCheck();
