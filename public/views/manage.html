@@ -2,43 +2,69 @@
   <h2> Manage Opportunities </h2>
 <!-- filters -->
   <div class="filterContainer">
-    <select ng-model="mc.filter.contactDate">
-      <option value="null"> All Dates </option>
-      <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.contactdate}} </option>
-    </select>
-    <select ng-model="mc.filter.active">
-      <option value="true"> True </option>
-      <option value="false"> False </option>
-    </select>
-    <button ng-click="mc.getFilterResults(mc.filter)" type="button"> Filter </button>
+    <div>
+      <label for=""> Company Name / Contact Date </label>
+        <select ng-model="mc.filter.contactDate">
+          <option value="null"> All Dates </option>
+          <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.companyname}} - {{filteredDates.contactdate}} </option>
+        </select>
+    </div>
+    <div>
+      <label for=""> Active Opportunities </label>
+        <select ng-model="mc.filter.active">
+          <option value="true"> True </option>
+          <option value="false"> False </option>
+        </select>
+    </div>
+    <div>
+      <button ng-click="mc.getFilterResults(mc.filter)" type="button"> Filter </button>
+    </div>
   </div>
 
 <!-- opportunities table -->
-  <div>
-    <table>
-      <thead>
+  <div class="manageDiv">
+    <table class="manageTable" ng-repeat="allOpportunities in mc.allOpportunities.list">
         <tr>
-          <td> Active </td>
-          <td> Company Name </td>
-          <td> Contact First Name </td>
-          <td> Contact Last Name </td>
-          <td> Contact Email </td>
-          <td> Initial Contact Date </td>
-          <td> Notes </td>
+          <td class="manageTd">
+            <div>
+              <label for=""> Active: </label>
+              <input type="checkbox" ng-model="allOpportunities.active" value="true"> {{allOpportunities.active}}
+            </div>
+          </td>
+          <td class="manageTd">
+            <div>
+              <label for=""> Company Name: </label>
+              <input type="text" ng-model="allOpportunities.companyname">
+            </div>
+            <div>
+              <label for=""> Contact First Name: </label>
+              <input type="text" ng-model="allOpportunities.contactfirstname">
+            </div>
+            <div>
+              <label for=""> Contact Last Name: </label>
+              <input type="text" ng-model="allOpportunities.contactlastname">
+            </div>
+            <div>
+              <label for=""> Contact Email: </label>
+              <input type="text" ng-model="allOpportunities.contactemail">
+            </div>
+            <div>
+              <label for=""> Initial Contact Date: </label>
+              <input type="text" ng-model="allOpportunities.contactdate">
+            </div>
+          </td>
+          <td class="manageTd">
+            <div>
+              <label for=""> Notes: </label>
+              <textarea rows="6" cols="50" ng-model="allOpportunities.note"> {{allOpportunities.note}} </textarea>
+            </div>
+          </td>
+          <td class="manageTd">
+            <div>
+              <button ng-click="mc.updateOpportunity(allOpportunities)" type="button"> Update </button>
+              <button type="button"> Delete </button>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="allOpportunities in mc.allOpportunities.list">
-          <td> {{allOpportunities.active}} </td>
-          <td> <input type="text" ng-model="allOpportunities.companyname"> </td>
-          <td> <input type="text" ng-model="allOpportunities.contactfirstname"> </td>
-          <td> <input type="text" ng-model="allOpportunities.contactlastname"> </td>
-          <td> <input type="text" ng-model="allOpportunities.contactemail"> </td>
-          <td> <input type="text" ng-model="allOpportunities.contactdate"> </td>
-          <td> <textarea rows="3" cols="50" ng-model="allOpportunities.note"> {{allOpportunities.note}} </textarea> </td>
-          <td> <button ng-click="mc.updateOpportunity(allOpportunities)" type="button"> Update </button> </td>
-          <td> <button type="button"> Delete </button> </td>
-        </tr>
-      </tbody>
     </table>
   </div>

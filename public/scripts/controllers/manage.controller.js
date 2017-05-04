@@ -1,5 +1,5 @@
 
-myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window) {
+myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', '$route', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window, $route) {
 // console.log('OneController running');
 
   var self = this;
@@ -57,6 +57,7 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
       }
   }//end of loginCheck()
 
+//gets results from filters
   self.getFilterResults = function(filter) {
     var firebaseUser = auth.$getAuth();
     var userMatchObject = FactoryFactory.userMatchObject.list;
@@ -76,10 +77,12 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
           FactoryFactory.getOpportunities(filterResult);//hard coded value on server side
   }//end of getFilterResults()
 
+
 //updates an opportunity at the DB
   self.updateOpportunity = function(allOpportunities) {
     console.log(allOpportunities);
-    FactoryFactory.updateOpportunity(allOpportunities)
+    FactoryFactory.updateOpportunity(allOpportunities);
+    $route.reload();
   }
 
 

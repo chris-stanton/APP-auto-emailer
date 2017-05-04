@@ -77,8 +77,28 @@ header {
 //           MANAGE VIEW           //
 ///////////////////////////////////*/
 
+.manageDiv {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin: 5px;
+}
 
+.manageTable {
+  border: 1px solid black;
+  /*margin: 5px;*/
+  text-align: right;
+  display: inline-block;
+}
 
+.manageTd {
+  border: 1px solid black;
+  /*text-align: justify;*/
+}
+
+.filterContainer {
+  text-align: center;
+}
 
 
 

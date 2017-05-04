@@ -47,7 +47,7 @@ router.put('/getFilterDates', function(req, res) {
   var id = req.body;
   pool.connect()
     .then(function (client) {
-      client.query("SELECT contactDate FROM companies WHERE users_id=$1", [id.id])
+      client.query("SELECT contactDate, companyName FROM companies WHERE users_id=$1", [id.id])
         .then(function (result) {
           client.release();
           res.send(result.rows);
