@@ -8,8 +8,8 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
   var auth = $firebaseAuth();
   var firebaseUser = auth.$getAuth();
 
-
   self.message = 'angular Header Controller sourced';
+
 
   init();
 
@@ -30,15 +30,15 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
 
 //creates user credentials
   function createUser() {
+    var auth = $firebaseAuth();
     var firebaseUser = auth.$getAuth();
       var atLogin = {
         displayName : firebaseUser.displayName,
         email : firebaseUser.email,
         photo : firebaseUser.photoURL
       };
-      console.log("logged in user; ", atLogin);
-//calls function at factory
-        FactoryFactory.checkUserAtLogin(atLogin);
+  //calls function at factory
+      FactoryFactory.checkUserAtLogin(atLogin);
   };//end of createUser()
 
 //google auth login and new user object created

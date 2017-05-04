@@ -11,6 +11,9 @@ header {
   background-color: #b0b0b0;
 }
 
+input {
+  border-radius: 5px;
+}
 
 
 
@@ -77,10 +80,33 @@ header {
 //           MANAGE VIEW           //
 ///////////////////////////////////*/
 
+.manageDiv {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin: 5px;
+}
 
+.manageTable {
+  border: 1px solid black;
+  /*margin: 5px;*/
+  text-align: right;
+  display: inline-block;
+}
 
+.manageTd {
+  border: 1px solid black;
+  /*text-align: justify;*/
+}
 
+.filterContainer {
+  text-align: center;
+}
 
+#textareaLabel {
+  text-align: left;
+  margin-right: 320px;
+}
 
 
 
