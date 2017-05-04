@@ -63,6 +63,23 @@ var pool = new pg.Pool(config);
   });//end of router.post
 
 
+  router.delete('/deleteOpportunity/:id', function(req, res) {
+    var allOpportunities = req.params.id;
+    pool.connect()
+      .then(function (client) {
+        client.query('DELETE FROM companies WHERE id = $1',
+          [allOpportunities])
+          .then(function (result) {
+            client.release();
+            res.sendStatus(200);
+        })
+        .catch(function (err) {
+            console.log('error on Delete', err);
+            res.sendStatus(500);
+        });
+    });
+  });
+
 
 
 module.exports = router;

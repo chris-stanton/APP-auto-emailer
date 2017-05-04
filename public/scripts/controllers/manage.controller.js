@@ -84,6 +84,11 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
       $route.reload();
   }
 
+//updates an opportunity at the DB
+  self.deleteOpportunity = function(allOpportunities) {
+    FactoryFactory.deleteOpportunity(allOpportunities);
+      $route.reload();
+  }
 
 
 

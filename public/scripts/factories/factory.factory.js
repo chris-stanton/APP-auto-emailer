@@ -104,6 +104,27 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
   }//end of addCompany()
 
 
+//updates opportunity
+  function deleteOpportunity(allOpportunities) {
+    firebase.auth().currentUser.getToken().then(function(idToken) {
+      console.log(allOpportunities);
+      $http({
+        method: 'DELETE',
+        url: '/auth/deleteOpportunity/' + allOpportunities.id,
+        data: allOpportunities,
+        headers: {
+          id_token: idToken
+        }
+      }).then(function(response){
+        notyf.confirm('Your delete(s) have been submitted!')
+      }).catch(function(error) {
+        swal("Sorry, we couldn't add opportunity", "Try Again!", "error");
+        console.log('error authenticating', error);
+      });
+    });//end of firebase.auth()
+  }//end of addCompany()
+
+
 
 //public API
   return {
@@ -124,7 +145,9 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
 //all users emails to watch for ID
   userMatchObject : userMatchObject,
 //updates opportunity
-  updateOpportunity : updateOpportunity
+  updateOpportunity : updateOpportunity,
+//deletes opportunity
+  deleteOpportunity : deleteOpportunity
 
   }
 
