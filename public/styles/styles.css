@@ -58,14 +58,14 @@ input {
   text-align: center;
   font-family: fantasy;
   margin: 0px 0px 0px 0px;
-
 }
 
 /*google auth image*/
 .authImage {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   border-radius: 25px;
+  margin: 0px 10px 0px 10px;
 }
 
 
@@ -79,9 +79,16 @@ input {
 #navTable {
   text-align: center;
   width: 100%;
-  /*display: inline-block;*/
 }
 
+#navTr {
+  height: 40px;
+  font-size: 20px;
+}
+
+nav {
+  background-color: #bdcdbd;
+}
 
 
 
