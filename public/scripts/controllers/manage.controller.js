@@ -47,7 +47,6 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 
 
   loginCheck();
-
 //redirect to login of not authenticated
   function loginCheck() {
     var firebaseUser = auth.$getAuth();
@@ -69,15 +68,21 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
           var id = userMatchObject[i].id;
         }//end of if
       };//end of for loop
+        var filterResult = {
+          contactDate : filter.contactDate,
+          active : filter.active,
+          id : id
+        };
+          FactoryFactory.getOpportunities(filterResult);//hard coded value on server side
+  }//end of getFilterResults()
 
-      var filterResult = {
-        contactDate : filter.contactDate,
-        active : filter.active,
-        id : id
-      }
-    console.log("filter result: ", filterResult);
-    FactoryFactory.getOpportunities(filterResult);//hard coded value on server side
+//updates an opportunity at the DB
+  self.updateOpportunity = function(allOpportunities) {
+    console.log(allOpportunities);
+    FactoryFactory.updateOpportunity(allOpportunities)
   }
+
+
 
 
 }]);//end of myApp.controller

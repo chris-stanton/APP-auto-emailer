@@ -44,7 +44,23 @@ var pool = new pg.Pool(config);
       });//end of .then
   });//end of router.post
 
-
+//adds new user to DB
+  router.put('/allOpportunities', function (req, res) {
+    var allOpportunities = req.body;
+    console.log(allOpportunities);
+      pool.connect()
+      .then(function (client) {
+        client.query('UPDATE companies SET companyName=$1, contactFirstName=$2, contactLastName=$3, contactEmail=$4, contactDate=$5, note=$6, active=$7 WHERE id=$8;',[allOpportunities.companyname, allOpportunities.contactfirstname, allOpportunities.contactlastname, allOpportunities.contactemail, allOpportunities.contactdate, allOpportunities.note, allOpportunities.active, allOpportunities.id])
+        .then(function (result) {
+          client.release();
+          res.send(result.rows);
+        })
+        .catch(function (err) {
+          console.log('error on SELECT', err);
+          res.sendStatus(500);
+        });
+      });//end of .then
+  });//end of router.post
 
 
 

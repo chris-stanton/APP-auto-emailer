@@ -83,7 +83,25 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });
   }
 
-
+//updates opportunity
+  function updateOpportunity(allOpportunities) {
+    firebase.auth().currentUser.getToken().then(function(idToken) {
+      console.log(allOpportunities);
+      $http({
+        method: 'PUT',
+        url: '/auth/allOpportunities',
+        data: allOpportunities,
+        headers: {
+          id_token: idToken
+        }
+      }).then(function(response){
+        notyf.confirm('Your update(s) have been submitted!')
+      }).catch(function(error) {
+        swal("Sorry, we couldn't add opportunity", "Try Again!", "error");
+        console.log('error authenticating', error);
+      });
+    });//end of firebase.auth()
+  }//end of addCompany()
 
 
 
@@ -104,7 +122,10 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
 //calls user match function in factory
   getUserMatch : getUserMatch,
 //all users emails to watch for ID
-  userMatchObject : userMatchObject
+  userMatchObject : userMatchObject,
+//updates opportunity
+  updateOpportunity : updateOpportunity
+
   }
 
 }]);//end of app.factory()

@@ -30,14 +30,14 @@
       <tbody>
         <tr ng-repeat="allOpportunities in mc.allOpportunities.list">
           <td> {{allOpportunities.active}} </td>
-          <td> {{allOpportunities.companyname}} </td>
-          <td> {{allOpportunities.contactfirstname}} </td>
-          <td> {{allOpportunities.contactlastname}} </td>
-          <td> {{allOpportunities.contactemail}} </td>
-          <td> {{allOpportunities.contactdate}} </td>
-          <td> <textarea rows="3" cols="50"> {{allOpportunities.note}} </textarea> </td>
-          <td> <button type="button" name="button"> </button> Update </td>
-          <td> <button type="button" name="button"> </button> Delete </td>
+          <td> <input type="text" ng-model="allOpportunities.companyname"> </td>
+          <td> <input type="text" ng-model="allOpportunities.contactfirstname"> </td>
+          <td> <input type="text" ng-model="allOpportunities.contactlastname"> </td>
+          <td> <input type="text" ng-model="allOpportunities.contactemail"> </td>
+          <td> <input type="text" ng-model="allOpportunities.contactdate"> </td>
+          <td> <textarea rows="3" cols="50" ng-model="allOpportunities.note"> {{allOpportunities.note}} </textarea> </td>
+          <td> <button ng-click="mc.updateOpportunity(allOpportunities)" type="button"> Update </button> </td>
+          <td> <button type="button"> Delete </button> </td>
         </tr>
       </tbody>
     </table>
