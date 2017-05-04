@@ -13,10 +13,32 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
   self.message = 'angular Manage Controller sourced';
 
 
+  //gets all opportunities from DB
+    FactoryFactory.getOpportunities();
+  //all opportunities from DB
+    self.allOpportunities = FactoryFactory.allOpportunities;
+  //all dates from DB to view
+    self.filteredDates = FactoryFactory.filteredDates;
+
+
+
+
   init();
   function init() {
+    loginCheck()
     getFilterDates();
   }
+
+
+//redirect to login of not authenticated
+  function loginCheck() {
+    var firebaseUser = auth.$getAuth();
+      if (firebaseUser === null) {
+        $location.path('/login');
+      } else {
+        return
+      }
+  }//end of loginCheck()
 
 //gets filter dates from DB
   function getFilterDates(){
@@ -36,26 +58,6 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
         FactoryFactory.getFilterDates(id);
   }//end of getFilterDates()
 
-
-//gets all opportunities from DB
-  FactoryFactory.getOpportunities();
-//all opportunities from DB
-  self.allOpportunities = FactoryFactory.allOpportunities;
-//all dates from DB to view
-  self.filteredDates = FactoryFactory.filteredDates;
-
-
-
-  loginCheck();
-//redirect to login of not authenticated
-  function loginCheck() {
-    var firebaseUser = auth.$getAuth();
-      if (firebaseUser === null) {
-        $location.path('/login');
-      } else {
-        return
-      }
-  }//end of loginCheck()
 
 //gets results from filters
   self.getFilterResults = function(filter) {
