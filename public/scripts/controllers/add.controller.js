@@ -31,17 +31,28 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
 
 //sends new company to DB
   self.addCompany = function(company){
-    console.log("company ", company);
-    newCompany = {
-      companyName : company.companyName,
-      firstName : company.firstName,
-      lastName : company.lastName,
-      email : company.email,
-      contactDate : company.contactDate,
-      note : company.note,
-      id : 1 //hard coaded value
-    }
-//sends new company to DB    
+    var firebaseUser = auth.$getAuth();
+      var userMatchObject = FactoryFactory.userMatchObject.list;
+    //container to loop id's through
+      var id = "";
+    //loops through all users email to find correct id
+      for (var i = 0; i < userMatchObject.length; i++) {
+        if (userMatchObject[i].email == firebaseUser.email) {
+          var id = userMatchObject[i].id;
+        }//end of if
+      };//end of for loop
+
+      console.log("company ", company);
+      newCompany = {
+          companyName : company.companyName,
+          firstName : company.firstName,
+          lastName : company.lastName,
+          email : company.email,
+          contactDate : company.contactDate,
+          note : company.note,
+          id : id 
+        }
+//sends new company to DB
     FactoryFactory.addCompany(newCompany);
 //empties inputs
     self.company = {};

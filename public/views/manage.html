@@ -2,15 +2,15 @@
   <h2> Manage Opportunities </h2>
 <!-- filters -->
   <div class="filterContainer">
-    <select ng-model="mc.filterResult.contactDate">
+    <select ng-model="mc.filter.contactDate">
       <option value="null"> All Dates </option>
       <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.contactdate}} </option>
     </select>
-    <select ng-model="mc.filterResult.active">
+    <select ng-model="mc.filter.active">
       <option value="true"> True </option>
       <option value="false"> False </option>
     </select>
-    <button ng-click="mc.getFilterResults(mc.filterResult)" type="button"> Filter </button>
+    <button ng-click="mc.getFilterResults(mc.filter)" type="button"> Filter </button>
   </div>
 
 <!-- opportunities table -->

@@ -6,7 +6,13 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
 
   var allOpportunities = { list : [] }
   var filteredDates = { list : [] }
+  var userMatchObject = { list : [] }
 
+  init();
+
+  function init() {
+    getUserMatch();
+  }
 
   function checkUserAtLogin(atLogin) {
     // firebase.auth().currentUser.getToken().then(function(idToken) {
@@ -26,6 +32,7 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     // });//end of firebase.auth()
   }//end of checkUserAtLogin()
 
+//get opportunity from DB by id
   function getOpportunities(filterResult) {
     $http({
       method:'PUT',
@@ -36,6 +43,7 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });
   }
 
+//add company to DB
   function addCompany(newCompany) {
     firebase.auth().currentUser.getToken().then(function(idToken) {
       $http({
@@ -54,17 +62,26 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });//end of firebase.auth()
   }//end of addCompany()
 
-  function getFilterDates(filterResult) {
+//gest filter dates from user id
+  function getFilterDates(id) {
     $http({
-      method:'GET',
+      method:'PUT',
       url: '/public/getFilterDates',
-      data: filterResult
+      data: id
     }).then(function(response){
       filteredDates.list = response.data;
     });
   }
 
-
+//gets all users email to match for ID
+  function getUserMatch() {
+    $http({
+      method:'GET',
+      url: '/public/getUserMatch'
+    }).then(function(response){
+      userMatchObject.list = response.data;
+    });
+  }
 
 
 
@@ -83,8 +100,11 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
 //filter object from manage view to DB
   getFilterDates : getFilterDates,
 //filter results from BD to manage view
-  filteredDates : filteredDates
-
+  filteredDates : filteredDates,
+//calls user match function in factory
+  getUserMatch : getUserMatch,
+//all users emails to watch for ID
+  userMatchObject : userMatchObject
   }
 
 }]);//end of app.factory()

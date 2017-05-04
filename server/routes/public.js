@@ -16,7 +16,7 @@ router.put('/allOpportunities', function(req, res) {
     if (filterResult.contactDate !== "null"){
       pool.connect()
         .then(function (client) {
-          client.query("SELECT * FROM companies WHERE contactDate=$1 and active=$2", [filterResult.contactDate, filterResult.active])
+          client.query("SELECT * FROM companies WHERE contactDate=$1 and active=$2 and users_id=$3", [filterResult.contactDate, filterResult.active, filterResult.id])
             .then(function (result) {
               client.release();
               res.send(result.rows);
@@ -29,7 +29,7 @@ router.put('/allOpportunities', function(req, res) {
     } else {
       pool.connect()
         .then(function (client) {
-          client.query("SELECT * FROM companies WHERE active=$1", [filterResult.active])
+          client.query("SELECT * FROM companies WHERE active=$1 and users_id=$2", [filterResult.active, filterResult.id])
             .then(function (result) {
               client.release();
               res.send(result.rows);
@@ -43,11 +43,27 @@ router.put('/allOpportunities', function(req, res) {
 });//end of router.put
 
 //gets dates for manage filter by users_id
-router.get('/getFilterDates', function(req, res) {
+router.put('/getFilterDates', function(req, res) {
+  var id = req.body;
+  pool.connect()
+    .then(function (client) {
+      client.query("SELECT contactDate FROM companies WHERE users_id=$1", [id.id])
+        .then(function (result) {
+          client.release();
+          res.send(result.rows);
+        })
+        .catch(function (err) {
+          console.log('error on SELECT', err);
+          res.sendStatus(500);
+        });
+    });//end of .then
+});//end of router.get
+
+router.get('/getUserMatch', function(req, res) {
   var getFilterDates = req.body;
   pool.connect()
     .then(function (client) {
-      client.query("SELECT contactDate FROM companies where users_id=1")//hard coded value
+      client.query("SELECT id, email FROM users")
         .then(function (result) {
           client.release();
           res.send(result.rows);

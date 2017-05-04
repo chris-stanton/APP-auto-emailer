@@ -11,8 +11,32 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
 
 
   self.message = 'angular Manage Controller sourced';
+
+  init();
+  function init() {
+    getFilterDates();
+  }
+
 //gets filter dates from DB
-  FactoryFactory.getFilterDates();
+  function getFilterDates(){
+    var firebaseUser = auth.$getAuth();
+    var userMatchObject = FactoryFactory.userMatchObject.list;
+//container to loop id's through
+    var id = "";
+//loops through all users email to find correct id
+      for (var i = 0; i < userMatchObject.length; i++) {
+        if (userMatchObject[i].email == firebaseUser.email) {
+          var id = userMatchObject[i].id;
+        }//end of if
+      };//end of for loop
+      var id = {
+        id : id
+      }
+      FactoryFactory.getFilterDates(id);
+      console.log(id);
+  }//end of getFilterDates()
+
+
 //gets all opportunities from DB
   FactoryFactory.getOpportunities();
 //all opportunities from DB
@@ -21,12 +45,8 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
   self.filteredDates = FactoryFactory.filteredDates;
 
 
-  init();
 
-//startup function
-  function init() {
-    loginCheck();
-  }
+  loginCheck();
 
 //redirect to login of not authenticated
   function loginCheck() {
@@ -38,9 +58,25 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
       }
   }//end of loginCheck()
 
-  self.getFilterResults = function(filterResult) {
+  self.getFilterResults = function(filter) {
+    var firebaseUser = auth.$getAuth();
+    var userMatchObject = FactoryFactory.userMatchObject.list;
+//container to loop id's through
+    var id = "";
+//loops through all users email to find correct id
+      for (var i = 0; i < userMatchObject.length; i++) {
+        if (userMatchObject[i].email == firebaseUser.email) {
+          var id = userMatchObject[i].id;
+        }//end of if
+      };//end of for loop
+
+      var filterResult = {
+        contactDate : filter.contactDate,
+        active : filter.active,
+        id : id
+      }
     console.log("filter result: ", filterResult);
-    FactoryFactory.getOpportunities(filterResult);
+    FactoryFactory.getOpportunities(filterResult);//hard coded value on server side
   }
 
 
