@@ -7,13 +7,12 @@ var public = require('./server/routes/public.js');
 var auth = require('./server/routes/auth.js');
 
 
-app.use('/inboundURLbase', auth)
-
-
 //Serve back static files
 app.use(express.static(path.join(__dirname, './public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());//req.body
+app.use(bodyParser.urlencoded({extended: true}));//req.body
+
+app.use('/inboundURLbase', auth)
 
 //Handle index file separately
 app.get('/', function(req, res) {
