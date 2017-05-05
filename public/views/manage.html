@@ -5,7 +5,7 @@
     <div>
       <label for=""> Company Name / Contact Date </label>
         <select ng-model="mc.filter.contactDate">
-          <option value="null"> All Dates </option>
+          <option value="null"> All Companys </option>
           <option ng-repeat="filteredDates in mc.filteredDates.list" value="{{filteredDates.contactdate}}"> {{filteredDates.companyname}} </option>
         </select>
     </div>
@@ -17,7 +17,7 @@
         </select>
     </div>
     <div>
-      <button ng-click="mc.getFilterResults(mc.filter)" type="button"> Filter </button>
+      <button ng-click="mc.getFilterResults(mc.filter)" class="btn btn-primary" type="button"> Filter </button>
     </div>
   </div>
 
@@ -61,8 +61,8 @@
           </td>
           <td class="manageTd">
             <div>
-              <button ng-click="mc.updateOpportunity(allOpportunities)" type="button"> Update </button>
-              <button ng-click="mc.deleteOpportunity(allOpportunities)" type="button"> Delete </button>
+              <button ng-click="mc.updateOpportunity(allOpportunities)" class="btn btn-warning" type="button"> Update </button>
+              <button ng-click="mc.deleteOpportunity(allOpportunities)" class="btn btn-danger" type="button"> Delete </button>
             </div>
           </td>
         </tr>
