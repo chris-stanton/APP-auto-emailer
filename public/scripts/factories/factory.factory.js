@@ -95,7 +95,6 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
           id_token: idToken
         }
       }).then(function(response){
-        getOpportunities()
         notyf.confirm('Your update(s) have been submitted!');
       }).catch(function(error) {
         swal("Sorry, we couldn't add opportunity", "Try Again!", "error");
