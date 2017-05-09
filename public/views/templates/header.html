@@ -2,8 +2,8 @@
 <div>
   <div class="loginButtons">
     <img class="authImage" ng-hide="hc.email === NULL" src="{{hc.photo}}">
-      <button class="loginButtons" ng-show="hc.email === NULL" ng-click="hc.login()" type="button"> login </button>
-      <button class="loginButtons" ng-hide="hc.email === NULL" ng-click="hc.logout()" type="button"> logout </button>
+      <button class="btn" class="loginButtons" ng-show="hc.email === NULL" ng-click="hc.login()"  type="button"> login </button>
+      <button class="btn" class="loginButtons" ng-hide="hc.email === NULL" ng-click="hc.logout()" type="button"> logout </button>
   </div>
   <h1 class="h1Header"> Auto Emailer </h1>
 </div>

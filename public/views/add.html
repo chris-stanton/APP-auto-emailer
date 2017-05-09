@@ -40,19 +40,19 @@
 
         <tr>
           <td>
-            <input ng-model="ac.company.companyName" class="input" type="text">
+            <input ng-model="ac.company.companyName" class="input" type="text" style="text-transform : capitalize">
           </td>
           <td>
-            <input ng-model="ac.company.firstName" class="input" type="text">
+            <input ng-model="ac.company.firstName" class="input" type="text" style="text-transform : capitalize">
           </td>
           <td>
-            <input ng-model="ac.company.lastName" class="input" type="text">
+            <input ng-model="ac.company.lastName" class="input" type="text" style="text-transform : capitalize">
           </td>
           <td>
-            <input ng-model="ac.company.email" class="input" placeholder="example@gmail.com" type="text">
+            <input ng-model="ac.company.email" class="input" type="email">
           </td>
           <td>
-            <input ng-model="ac.company.contactDate" class="input" placeholder="mm/dd/yy" type="text">
+            <input ng-model="ac.company.contactDate" class="input" type="date">
           </td>
         </tr>
     </table>
@@ -62,10 +62,10 @@
     </div>
 
     <div>
-      <textarea ng-model="ac.company.note" rows="8" cols="100"></textarea>
+      <textarea ng-model="ac.company.note" autocapitalize="sentance" rows="8" cols="100"></textarea>
     </div>
 
     <div id="buttonDiv">
-      <button ng-click="ac.addCompany(ac.company)" type="button"> Submit </button>
+      <button ng-click="ac.addCompany(ac.company)" class="btn btn-primary" type="button"> Submit </button>
     </div>
   </div>

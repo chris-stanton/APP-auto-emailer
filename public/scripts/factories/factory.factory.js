@@ -95,7 +95,7 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
           id_token: idToken
         }
       }).then(function(response){
-        notyf.confirm('Your update(s) have been submitted!')
+        notyf.confirm('Your update(s) have been submitted!');
       }).catch(function(error) {
         swal("Sorry, we couldn't add opportunity", "Try Again!", "error");
         console.log('error authenticating', error);
