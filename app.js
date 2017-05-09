@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var decoder = require('./server/modules/decoder');
 var public = require('./server/routes/public.js');
 var auth = require('./server/routes/auth.js');
+var email = require('./server/routes/email.js');
 
 
 //Serve back static files
@@ -22,6 +23,7 @@ app.get('/', function(req, res) {
 
 //route pointers
 app.use('/public', public);
+app.use('/email', email);
 
 //authentication is required below this line
 app.use(decoder.token);
