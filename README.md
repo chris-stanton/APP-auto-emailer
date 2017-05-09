@@ -1,12 +1,22 @@
+## Auto-Emailer App
+
+###### Auto-Emailer is an app where users can manage important contact dates to specific individuals.  The app allows a user to add basic data that pertains to a contact, edit the data (at a later time) and schedule automatic follow up reminder emails to be sent to the user.
+
+
+
 ## Technologies Used
-  1. Express.js - version ``` v4.15.2 ```
-  2. Angular.js - version ``` v1.6.3 ```
-  3. Angular Route - version ``` v1.6.3 ```
+  1. Express.js ``` v4.15.2 ```
+  2. Angular.js ``` v1.6.3 ```
+  3. Angular Route ``` v1.6.3 ```
   4. Node.js
-  5. Body-Parser - version ``` v1.17.1 ```
-  6. PG - version ``` v6.1.4 ```
+  5. Body-Parser ``` v1.17.1 ```
+  6. PG ``` v6.1.4 ```
   7. GIT / GitHub
-  8. Bootstrap - version ``` v3.3.7 ```
+  8. Bootstrap ``` v3.3.7 ```
+  9. Express ``` v4.15.2 ```
+  10. Firebase `` 3.7.5 ``
+  11. Firebase-admin `` 4.0.3 ``
+  12. Node Mailer `` 4.0.1 ``
 
 
 
