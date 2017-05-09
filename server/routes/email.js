@@ -16,8 +16,8 @@ var pool = new pg.Pool(config);
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'development.testing84@gmail.com', //YOUR GMAIL USER HERE -> EXAMPLE@gmail.com
-        pass: 'NewPassword'  //YOUR GMAIL PASSWORD, DO NOT HOST THIS INFO ON GITHUB!
+        user: '', //YOUR GMAIL USER HERE -> EXAMPLE@gmail.com
+        pass: ''  //YOUR GMAIL PASSWORD, DO NOT HOST THIS INFO ON GITHUB!
     }
 });
 
