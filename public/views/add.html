@@ -1,0 +1,71 @@
+
+<h2 class="headers"> Add Opportunities </h2>
+<!-- company submition form -->
+  <div id="companySubmitContainer">
+    <table>
+        <tr>
+          <td>
+            <label class="head"> Company Name </label>
+          </td>
+          <td>
+            <label class="head"> Contact First Name </label>
+          </td>
+          <td>
+            <label class="head"> Contact Last Name </label>
+          </td>
+          <td>
+            <label class="head"> Contact Email </label>
+          </td>
+          <td>
+            <label class="head"> Initial Contact Date </label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p class="description"> *Company name you applied to </p>
+          </td>
+          <td>
+            <p class="description"> *First name of companies' representative </p>
+          </td>
+          <td>
+            <p class="description"> *Last name of companies' representative </p>
+          </td>
+          <td>
+            <p class="description"> *Email address of companies' representative </p>
+          </td>
+          <td>
+            <p class="description"> *Initial contact date with representative </p>
+        </tr>
+
+        <tr>
+          <td>
+            <input ng-model="ac.company.companyName" class="input" type="text" style="text-transform : capitalize">
+          </td>
+          <td>
+            <input ng-model="ac.company.firstName" class="input" type="text" style="text-transform : capitalize">
+          </td>
+          <td>
+            <input ng-model="ac.company.lastName" class="input" type="text" style="text-transform : capitalize">
+          </td>
+          <td>
+            <input ng-model="ac.company.email" class="input" type="email">
+          </td>
+          <td>
+            <input ng-model="ac.company.contactDate" class="input" type="date">
+          </td>
+        </tr>
+    </table>
+
+    <div id="noteDiv">
+      <label> Notes </label>
+    </div>
+
+    <div>
+      <textarea ng-model="ac.company.note" autocapitalize="sentance" rows="8" cols="100"></textarea>
+    </div>
+
+    <div id="buttonDiv">
+      <button ng-click="ac.addCompany(ac.company)" class="btn btn-primary" type="button"> Submit </button>
+    </div>
+  </div>

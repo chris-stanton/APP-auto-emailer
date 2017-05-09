@@ -1,0 +1,174 @@
+
+/*///////////////////////////////////
+//             GLOBAL              //
+///////////////////////////////////*/
+
+/*h1 headers*/
+/*h2 {
+  text-align: center;
+}*/
+/*header background*/
+header {
+  background-color: #448fb0;
+}
+
+input {
+  border-radius: 5px;
+}
+
+.headers {
+  margin: 40px 0px 40px 0px;
+  text-align: center;
+  font-size: 45px;
+}
+
+
+
+
+/*///////////////////////////////////
+//            LOGIN VIEW           //
+///////////////////////////////////*/
+
+#loginHeader {
+  text-align: center;
+  margin-top: 180px;
+  font-size: 60px;
+  font-family: fantasy;
+  color: #e32222;
+}
+
+
+
+
+
+/*///////////////////////////////////
+//           HEADER VIEW           //
+///////////////////////////////////*/
+
+/*auth button div container*/
+.loginButtons {
+  text-align: right;
+  background-color: #448fb0;
+  outline-color: none;
+}
+
+/*header h1 element*/
+.h1Header {
+  font-size: 65px;
+  text-align: center;
+  font-family: fantasy;
+  margin: 0px 0px 0px 0px;
+}
+
+/*google auth image*/
+.authImage {
+  height: 35px;
+  width: 35px;
+  border-radius: 25px;
+  margin: 0px 10px 0px 10px;
+}
+
+
+
+
+/*///////////////////////////////////
+//             NAV VIEW            //
+///////////////////////////////////*/
+
+/*container element for links*/
+#navTable {
+  text-align: center;
+  width: 100%;
+}
+
+#navTr {
+  height: 40px;
+  font-size: 20px;
+}
+
+nav {
+  background-color: #bdcdbd;
+}
+
+
+
+
+
+/*///////////////////////////////////
+//            ADD VIEW             //
+///////////////////////////////////*/
+
+/*add new company element container*/
+#companySubmitContainer {
+  text-align: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/*div container around note header*/
+#noteDiv {
+  margin-top: 40px;
+}
+
+/*div container around button*/
+#buttonDiv {
+  margin-top: 40px;
+}
+
+/*td input container*/
+.input {
+  width: 180px;
+}
+
+/*container around input description*/
+.description {
+  font-size: 12px;
+}
+
+/*container around input title name*/
+.head {
+  font-size: 20px;
+}
+
+
+
+
+
+/*///////////////////////////////////
+//           MANAGE VIEW           //
+///////////////////////////////////*/
+
+.manageDiv {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  margin: 5px;
+}
+
+.manageTable {
+  border: 1px solid black;
+  /*margin: 5px;*/
+  text-align: right;
+  display: inline-block;
+}
+
+.manageTd {
+  border: 1px solid black;
+  /*text-align: justify;*/
+}
+
+.filterContainer {
+  text-align: center;
+}
+
+#textareaLabel {
+  text-align: left;
+  margin-right: 320px;
+}
+
+
+
+
+/*///////////////////////////////////
+//           EMAIL VIEW            //
+///////////////////////////////////*/
