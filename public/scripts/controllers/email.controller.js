@@ -27,7 +27,6 @@ myApp.controller('EmailController',['FactoryFactory', '$firebaseAuth', '$firebas
       }
   }//end of loginCheck()
 
-
 //sends email input object to server to be sent through nodemailer
   self.sendEmail = function(newEmail) {
     FactoryFactory.sendEmail(newEmail);

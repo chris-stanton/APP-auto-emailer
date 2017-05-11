@@ -103,7 +103,6 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });//end of firebase.auth()
   }//end of addCompany()
 
-
 //updates opportunity
   function deleteOpportunity(allOpportunities) {
     firebase.auth().currentUser.getToken().then(function(idToken) {

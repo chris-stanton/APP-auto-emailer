@@ -3,7 +3,6 @@ var pool = require('../modules/database-config');
 var admin = require("firebase-admin");
 // var logger = require('./logger');
 
-
 admin.initializeApp({
  credential: admin.credential.cert("./server/firebase-service-account.json"),
  databaseURL: "https://auto-emailer-84b7c.firebaseio.com", // replace this line with your URL
@@ -11,7 +10,6 @@ admin.initializeApp({
 /* This is where the magic happens. We pull the id_token off of the request,
 verify it against our firebase service account private_key.
 Then we add the decodedToken */
-
 
 var tokenDecoder = function(req, res, next){
   if (req.headers.id_token) {

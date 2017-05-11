@@ -9,7 +9,6 @@ var config = {
 };
 var pool = new pg.Pool(config);
 
-
 //adds new user to DB
   router.post('/userAtLogin', function (req, res) {
     var atLogin = req.body;
@@ -62,7 +61,7 @@ var pool = new pg.Pool(config);
       });//end of .then
   });//end of router.post
 
-
+//deletes oppertunity
   router.delete('/deleteOpportunity/:id', function(req, res) {
     var allOpportunities = req.params.id;
     pool.connect()
@@ -77,8 +76,8 @@ var pool = new pg.Pool(config);
             console.log('error on Delete', err);
             res.sendStatus(500);
         });
-    });
-  });
+    });//end of .then
+  });//end of router.delete
 
 
 

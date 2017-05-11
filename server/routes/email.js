@@ -13,7 +13,6 @@
   };
   var pool = new pg.Pool(config);
 
-
 // create reusable transporter object using the default SMTP transport
   var transporter = nodemailer.createTransport({
     service: 'yahoo',

@@ -10,7 +10,6 @@ myApp.controller('HeaderController',['FactoryFactory', '$firebaseAuth', '$fireba
 
   self.message = 'angular Header Controller sourced';
 
-
   init();
 
 // startup function
