@@ -1,27 +1,29 @@
-var router = require('express').Router();
-var pg = require('pg');
-var nodemailer = require('nodemailer');
-var config = {
-  database: 'auto_emailer',//database name
-  host: 'localhost',
-  port: 5432,
-  max: 10,
-  idleTimeoutMillis: 1500
-};
-var pool = new pg.Pool(config);
 
+  DotEnv = require('dotenv-node');
+  new DotEnv();
+  var router = require('express').Router();
+  var pg = require('pg');
+  var nodemailer = require('nodemailer');
+  var config = {
+    database: 'auto_emailer',
+    host: 'localhost',
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 1500
+  };
+  var pool = new pg.Pool(config);
 
 
 // create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport({
+  var transporter = nodemailer.createTransport({
     service: 'yahoo',
     auth: {
-        user: '',
-        pass: ''
+        user: process.env.ACCOUNT_NAME,
+        pass: process.env.ACCOUNT_PASSWORD
     }
-});
+  });
 
-router.post('/sendEmail', function(req,res){
+  router.post('/sendEmail', function(req,res){
     var newEmail = req.body;
     console.log(newEmail);
 
@@ -38,14 +40,8 @@ router.post('/sendEmail', function(req,res){
             return console.log(error);
         }
         console.log('Message %s sent: %s', info.messageId, info.response);
-    });
-
+    });//end of transporter
     res.send(200);
-});
-
-
-
-
-
+  });//end of router.post
 
 module.exports = router;
