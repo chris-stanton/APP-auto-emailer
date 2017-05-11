@@ -1,2 +1,21 @@
 
   <h2 class="headers"> Schedual Emails </h2>
+
+  <div id="emailContainer">
+    <div>
+      <label for="emailAdress"> Contact's Email Address:
+        <input ng-model="ec.newEmail.emailAddress" type="text" name="emailAddress">
+      </label>
+    </div>
+    <div>
+      <label for="subject"> Subject Title:
+        <textarea ng-model="ec.newEmail.subject" rows="4" cols="60" type="text" name="subject"> </textarea>
+      </label>
+    </div>
+    <div>
+      <label for="message"> Message:
+        <textarea ng-model="ec.newEmail.message" rows="8" cols="60" type="text" name="message"> </textarea>
+      </label>
+    </div>
+    <button ng-click="ec.sendEmail(ec.newEmail)" type="button" name="button"> Send Email </button>
+  </div>
