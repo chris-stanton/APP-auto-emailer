@@ -1,13 +1,14 @@
-var router = require('express').Router();
-var pg = require('pg');
-var config = {
-  database: 'auto_emailer',//database name
-  host: 'localhost',
-  port: 5432,
-  max: 10,
-  idleTimeoutMillis: 1500
-};
-var pool = new pg.Pool(config);
+
+  var router = require('express').Router();
+  var pg = require('pg');
+  var config = {
+    database: 'auto_emailer',//database name
+    host: 'localhost',
+    port: 5432,
+    max: 10,
+    idleTimeoutMillis: 1500
+  };
+  var pool = new pg.Pool(config);
 
 //adds new user to DB
   router.post('/userAtLogin', function (req, res) {
@@ -78,7 +79,5 @@ var pool = new pg.Pool(config);
         });
     });//end of .then
   });//end of router.delete
-
-
 
 module.exports = router;

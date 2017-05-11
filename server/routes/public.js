@@ -1,7 +1,7 @@
   var router = require('express').Router();
   var pg = require('pg');
   var config = {
-    database: 'auto_emailer',//database name
+    database: 'auto_emailer',
     host: 'localhost',
     port: 5432,
     max: 10,
@@ -58,6 +58,7 @@
       });//end of .then
   });//end of router.get
 
+//gets users to match id
   router.get('/getUserMatch', function(req, res) {
     var getFilterDates = req.body;
     pool.connect()
