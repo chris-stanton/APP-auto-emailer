@@ -20,7 +20,6 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '.public/index.html'));
 })
 
-
 //route pointers
 app.use('/public', public);
 app.use('/email', email);
@@ -30,7 +29,6 @@ app.use(decoder.token);
 
 //route pointers
 app.use('/auth', auth);
-
 
 
 //port listening

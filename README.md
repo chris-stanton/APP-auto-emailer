@@ -2,6 +2,8 @@
 
 ###### Auto-Emailer is an app where users can manage important contact dates to specific individuals.  The app allows a user to add basic data that pertains to a contact, edit the data (at a later time) and schedule automatic follow up reminder emails to be sent to the user.
 
+* note: There is a 5 minute delay when Nodemailer sends the email until the receiver gets the email in thier account.
+
 
 
 ## Technologies Used
