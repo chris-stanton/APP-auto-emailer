@@ -1,5 +1,5 @@
 {
-  "name": "angular-template",
+  "name": "Auto-Emailer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
     "firebase": "^3.7.5",
     "firebase-admin": "^4.0.3",
     "nodemailer": "^4.0.1",
+    "dotenv-node": "0.0.2",
     "pg": "^6.1.4"
   },
   "devDependencies": {},

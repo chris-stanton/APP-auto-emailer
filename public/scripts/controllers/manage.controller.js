@@ -9,16 +9,12 @@ myApp.controller('ManageController',['FactoryFactory', '$firebaseAuth', '$fireba
   var auth = $firebaseAuth();
   var firebaseUser = auth.$getAuth();
 
-
   self.message = 'angular Manage Controller sourced';
-
 
   //all opportunities from DB
   self.allOpportunities = FactoryFactory.allOpportunities;
   //all dates from DB to view
   self.filteredDates = FactoryFactory.filteredDates;
-
-
 
   init();
   function init() {

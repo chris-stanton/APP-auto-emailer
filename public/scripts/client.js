@@ -27,4 +27,4 @@ myApp.config(['$routeProvider', function($routeProvider) {
         .otherwise ( {
             redirectTo: '/add'
         });
-}]);
+}]);//end of myApp.config

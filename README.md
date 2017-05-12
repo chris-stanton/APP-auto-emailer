@@ -2,6 +2,8 @@
 
 ###### Auto-Emailer is an app where users can manage important contact dates to specific individuals.  The app allows a user to add basic data that pertains to a contact, edit the data (at a later time) and schedule automatic follow up reminder emails to be sent to the user.
 
+* note: There is a 5 minute delay when Nodemailer sends the email until the receiver gets the email in thier account.
+
 
 
 ## Technologies Used
@@ -43,15 +45,3 @@
 ###### The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 ###### THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-//must have variable for notyf
-  var notyf = new Notyf();
-
-  notyf.confirm('')
-  notyf.alert('There was an error updating the topic!');
-
-
-
-  swal("Sorry, we couldn't process your address.", "Try Again!", "error");
-  swal("flag Added To Database", "Success", "success");

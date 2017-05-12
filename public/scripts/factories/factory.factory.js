@@ -103,7 +103,6 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });//end of firebase.auth()
   }//end of addCompany()
 
-
 //updates opportunity
   function deleteOpportunity(allOpportunities) {
     firebase.auth().currentUser.getToken().then(function(idToken) {
@@ -124,6 +123,24 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
     });//end of firebase.auth()
   }//end of addCompany()
 
+//add company to DB
+  function sendEmail(newEmail) {
+    // firebase.auth().currentUser.getToken().then(function(idToken) {
+      $http({
+        method: 'POST',
+        url: '/email/sendEmail',
+        data: newEmail
+        // headers: {
+        //   id_token: idToken
+        // }
+      }).then(function(response){
+        notyf.confirm('You have submitted a new opportunity!')
+      }).catch(function(error) {
+        swal("Sorry, we couldn't add opportunity", "Try Again!", "error");
+        console.log('error authenticating', error);
+      });
+    // });//end of firebase.auth()
+  }//end of addCompany()
 
 
 //public API
@@ -147,7 +164,9 @@ myApp.factory('FactoryFactory',['$http','$route', '$firebaseAuth', function($htt
 //updates opportunity
   updateOpportunity : updateOpportunity,
 //deletes opportunity
-  deleteOpportunity : deleteOpportunity
+  deleteOpportunity : deleteOpportunity,
+//sends email object to server to be used with nodemailer
+  sendEmail : sendEmail
 
   }
 
