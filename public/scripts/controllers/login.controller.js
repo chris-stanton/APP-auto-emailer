@@ -9,7 +9,6 @@ myApp.controller('LoginController',['FactoryFactory', '$firebaseAuth', '$firebas
   var auth = $firebaseAuth();
   var firebaseUser = auth.$getAuth();
 
-
   self.message = "login sourced";
 
   init();
@@ -28,6 +27,5 @@ myApp.controller('LoginController',['FactoryFactory', '$firebaseAuth', '$firebas
         return
       }
   }//end of loginCheck()
-
 
 }]);//end controller code block

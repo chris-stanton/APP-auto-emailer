@@ -1,9 +1,8 @@
 
 myApp.controller('EmailController',['FactoryFactory', '$firebaseAuth', '$firebase', '$location', '$window', function(FactoryFactory, $firebaseAuth, $firebase, $location, $window) {
-  // console.log('TwoController running');
 
   var self = this;
- //must have variable for notyf
+//must have variable for notyf
   var notyf = new Notyf();
 //firebase
   var auth = $firebaseAuth();
@@ -28,5 +27,10 @@ myApp.controller('EmailController',['FactoryFactory', '$firebaseAuth', '$firebas
       }
   }//end of loginCheck()
 
+//sends email input object to server to be sent through nodemailer
+  self.sendEmail = function(newEmail) {
+    FactoryFactory.sendEmail(newEmail);
+      self.newEmail = {};
+  }//end of sendEmail()
 
 }]);//end of myApp.controller

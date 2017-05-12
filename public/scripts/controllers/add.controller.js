@@ -28,7 +28,6 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
       }
   }//end of loginCheck()
 
-
 //sends new company to DB
   self.addCompany = function(company){
     var firebaseUser = auth.$getAuth();
@@ -57,7 +56,5 @@ myApp.controller('AddController',['FactoryFactory', '$firebaseAuth', '$firebase'
 //empties inputs
     self.company = {};
   }//end of newCompany
-
-
 
 }]);//end controller code block
