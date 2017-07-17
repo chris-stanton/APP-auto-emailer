@@ -1,10 +1,23 @@
+
 ## Auto-Emailer App
+
+---
 
 ###### Auto-Emailer is an app where users can manage important contact dates to specific individuals.  The app allows a user to add basic data that pertains to a contact, edit the data (at a later time) and schedule automatic follow up reminder emails to be sent to the user.
 
-* note: There is a 5 minute delay when Nodemailer sends the email until the receiver gets the email in thier account.
+###### Not Authenticated view:
+<img src="./public/assets/images/screenshots/notLogin.png" width="50%">
 
+###### Add Opportunity:
+<img src="./public/assets/images/screenshots/addOpp.png" width="50%">
 
+###### Manage Opportunity:
+<img src="./public/assets/images/screenshots/manageOpp.png" width="50%">
+
+###### Schedule Emailings:
+<img src="./public/assets/images/screenshots/scheduleEmail.png" width="50%">
+
+---
 
 ## Technologies Used
   1. Express.js ``` v4.15.2 ```
@@ -20,7 +33,7 @@
   11. Firebase-admin `` 4.0.3 ``
   12. Node Mailer `` 4.0.1 ``
 
-
+---
 
 ## How To Install App
   1. Download zip file
