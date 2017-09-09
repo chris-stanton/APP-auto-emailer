@@ -4,16 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "angular": "^1.6.3",
-    "angular-route": "^1.6.3",
-    "body-parser": "^1.17.1",
-    "bootstrap": "^3.3.7",
-    "express": "^4.15.2",
-    "firebase": "^3.7.5",
-    "firebase-admin": "^4.0.3",
-    "nodemailer": "^4.0.1",
+    "angular": "1.6.3",
+    "angular-route": "1.6.3",
+    "body-parser": "1.17.1",
+    "bootstrap": "3.3.7",
+    "express": "4.15.2",
+    "firebase": "3.7.5",
+    "firebase-admin": "4.0.3",
+    "nodemailer": "4.0.1",
     "dotenv-node": "0.0.2",
-    "pg": "^6.1.4"
+    "pg": "6.1.4"
   },
   "devDependencies": {},
   "scripts": {
